@@ -1375,7 +1375,7 @@ function createHearts(){
 if(heartsRunning) return;
 heartsRunning = true;
 
-setInterval(()=>{
+let heartsInterval = setInterval(()=>{
 
 let heart=document.createElement("div");
 
@@ -1399,6 +1399,11 @@ heart.remove();
 
 },300);
 
+setTimeout(()=>{
+clearInterval(heartsInterval);
+heartsRunning = false;
+},4000);
+
 }
 
 // Sparkles
@@ -1410,7 +1415,7 @@ function createSparkles(){
 if(sparklesRunning) return;
 sparklesRunning = true;
 
-setInterval(()=>{
+let sparklesInterval = setInterval(()=>{
 
 let sparkle=document.createElement("div");
 
@@ -1430,6 +1435,11 @@ sparkle.remove();
 
 
 },200);
+
+setTimeout(()=>{
+clearInterval(sparklesInterval);
+sparklesRunning = false;
+},4000);
 
 }
 function createStars(){
@@ -1461,7 +1471,7 @@ createStars();
 
 function createPetals(){
 
-setInterval(()=>{
+let petalsInterval = setInterval(()=>{
 
 let petal=document.createElement("div");
 
@@ -1486,6 +1496,10 @@ petal.remove();
 
 
 },500);
+
+setTimeout(()=>{
+clearInterval(petalsInterval);
+},8000);
 
 }
 
@@ -1569,7 +1583,11 @@ particles.splice(index,1);
 requestAnimationFrame(animateFireworks);
 
 }
-setInterval(createFirework,1500);
+let fireworksInterval = setInterval(createFirework,1500);
+
+setTimeout(()=>{
+clearInterval(fireworksInterval);
+},8000);
 
 animateFireworks();
 
@@ -1731,7 +1749,7 @@ document.body.className="night";
 });
 function createFloatingNames(){
 
-setInterval(()=>{
+let namesInterval = setInterval(()=>{
 
 let name=document.createElement("div");
 
@@ -1750,6 +1768,10 @@ name.remove();
 },8000);
 
 },2500);
+
+setTimeout(()=>{
+clearInterval(namesInterval);
+},10000);
 
 }
 

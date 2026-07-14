@@ -1195,6 +1195,8 @@ document.getElementById("intro").style.display="flex";
 },4500);
 
 function startJourney(){
+document.getElementById("mainContent").style.display="none";
+    
 document.getElementById("intro").style.opacity="0";
 
 setTimeout(()=>{
@@ -1204,8 +1206,6 @@ document.getElementById("intro").style.display="none";
 },1000);
 
 document.getElementById("birthdayMusic").play();
-
-document.getElementById("mainContent").style.display="none";
 
 document.getElementById("intro").style.minHeight="auto";
 

@@ -1270,7 +1270,13 @@ document.getElementById("intro").style.display="none";
 
 },1000);
 
-document.getElementById("birthdayMusic").play();
+let music = document.getElementById("birthdayMusic");
+music.volume = 1;
+music.play().then(()=>{
+    alert("Music started!");
+}).catch((err)=>{
+    alert("Music failed: " + err);
+});
 
 document.getElementById("intro").style.minHeight="auto";
 

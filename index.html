@@ -1723,45 +1723,38 @@ name.remove();
 createFloatingNames();
     const angelBubble = document.getElementById("angelBubble");
 
-window.addEventListener("scroll", function () {
+window.addEventListener("scroll", () => {
 
-    const scroll = window.scrollY;
+    if (!angelShown) return;
 
-    if (scroll >= document.getElementById("day").offsetTop - 200) {
-        angelBubble.innerHTML =
-        "☀️ Welcome! Scroll down for your next surprise. ❤️";
+    const day = document.getElementById("day").getBoundingClientRect();
+    const sunset = document.getElementById("sunset").getBoundingClientRect();
+    const night = document.getElementById("night").getBoundingClientRect();
+    const gallery = document.getElementById("gallery").getBoundingClientRect();
+    const letter = document.getElementById("letter").getBoundingClientRect();
+    const cake = document.getElementById("cake").getBoundingClientRect();
+    const gift = document.getElementById("gift").getBoundingClientRect();
+
+    if (gift.top < window.innerHeight / 2) {
+        angelBubble.innerHTML = "🎁 Open your special gift!";
     }
-
-    if (scroll >= document.getElementById("sunset").offsetTop - 200) {
-        angelBubble.innerHTML =
-        "🌅 Every moment with you is a beautiful memory. ✨";
+    else if (cake.top < window.innerHeight / 2) {
+        angelBubble.innerHTML = "🕯️ Blow out the candle and make your birthday wish!";
     }
-
-    if (scroll >= document.getElementById("night").offsetTop - 200) {
-        angelBubble.innerHTML =
-        "🌙 The stars are celebrating with you tonight. ❤️";
+    else if (letter.top < window.innerHeight / 2) {
+        angelBubble.innerHTML = "💌 Touch the letter and read it with a smile.";
     }
-
-    if (scroll >= document.getElementById("gallery").offsetTop - 200) {
-        angelBubble.innerHTML =
-        "📸 Let's relive these beautiful memories together!";
+    else if (gallery.top < window.innerHeight / 2) {
+        angelBubble.innerHTML = "📸 Let's relive these beautiful memories together!";
     }
-
-    if (scroll >= document.getElementById("letter").offsetTop - 200) {
-        angelBubble.innerHTML =
-        "💌 Touch the letter and read it with a smile.";
+    else if (night.top < window.innerHeight / 2) {
+        angelBubble.innerHTML = "🌙 The stars are celebrating with you tonight.";
     }
-
-    if (scroll >= document.getElementById("cake").offsetTop - 200) {
-        angelBubble.innerHTML =
-        "🕯️ Blow out the candle and make your birthday wish!";
+    else if (sunset.top < window.innerHeight / 2) {
+        angelBubble.innerHTML = "🌅 Every moment with you is a beautiful memory.";
     }
-
-    if (document.getElementById("gift") &&
-        scroll >= document.getElementById("gift").offsetTop - 200) {
-
-        angelBubble.innerHTML =
-        "🎁 Now open your special gift!";
+    else if (day.top < window.innerHeight / 2) {
+        angelBubble.innerHTML = "☀️ Welcome! Scroll down for your next surprise.";
     }
 
 });

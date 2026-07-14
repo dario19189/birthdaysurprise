@@ -1000,6 +1000,54 @@ color:#ff69b4;
     font-weight:bold;
     text-shadow:0 0 10px #FF69B4;
 }
+    #angelGuide{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+display:none;
+z-index:9999;
+text-align:center;
+transition:all 1s ease;
+}
+
+#angelEmoji{
+font-size:90px;
+animation:floatAngel 2s ease-in-out infinite;
+filter:drop-shadow(0 0 20px gold);
+}
+
+#angelBubble{
+background:white;
+padding:15px;
+border-radius:20px;
+margin-top:10px;
+font-size:18px;
+max-width:300px;
+box-shadow:0 0 20px rgba(0,0,0,.2);
+}
+
+@keyframes floatAngel{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+.miniAngel{
+top:auto!important;
+left:auto!important;
+bottom:20px!important;
+right:20px!important;
+transform:none!important;
+}
+
+.miniAngel #angelEmoji{
+font-size:60px;
+}
+
+.miniAngel #angelBubble{
+font-size:14px;
+max-width:180px;
+}
 </style>
 
 </head>
@@ -1235,8 +1283,8 @@ window.scrollTo({
 
 // Countdown
 
-let birthdayDate = new Date("May 6, 2027 00:00:00").getTime();
-
+let birthdayDate = new Date().getTime() + 10000;
+let angelShown = false;
 
 setInterval(function(){
 
@@ -1244,6 +1292,34 @@ let now = new Date().getTime();
 
 let difference = birthdayDate - now;
 
+if(difference <= 0){
+
+document.getElementById("countdown").innerHTML =
+"<span class='countNum'>00</span> <span class='countText'>Days</span> " +
+"<span class='countNum'>00</span> <span class='countText'>Hours</span> " +
+"<span class='countNum'>00</span> <span class='countText'>Minutes</span> " +
+"<span class='countNum'>00</span> <span class='countText'>Seconds</span>";
+
+if(!angelShown){
+
+angelShown = true;
+
+document.getElementById("angelGuide").style.display = "block";
+
+setTimeout(function(){
+
+document.getElementById("angelGuide").classList.add("miniAngel");
+
+document.getElementById("angelBubble").innerHTML =
+"⬇️ Scroll down...<br>Your first surprise is waiting! ❤️";
+
+},3000);
+
+}
+
+return;
+
+}
 
 let days = Math.floor(difference/(1000*60*60*24));
 
@@ -1253,14 +1329,13 @@ let minutes = Math.floor((difference%(1000*60*60))/(1000*60));
 
 let seconds = Math.floor((difference%(1000*60))/1000);
 
-
 document.getElementById("countdown").innerHTML =
 "<span class='countNum'>" + days + "</span> <span class='countText'>Days</span> " +
 "<span class='countNum'>" + hours + "</span> <span class='countText'>Hours</span> " +
 "<span class='countNum'>" + minutes + "</span> <span class='countText'>Minutes</span> " +
 "<span class='countNum'>" + seconds + "</span> <span class='countText'>Seconds</span>";
-},1000);
 
+},1000);
 
 
 
@@ -1653,7 +1728,16 @@ createFloatingNames();
 <audio id="cakeMusic">
     <source src="birthday-song.mp3" type="audio/mpeg">
 </audio>
+<!-- Birthday Angel -->
+<div id="angelGuide">
+  <div id="angelEmoji">👼</div>
 
+  <div id="angelBubble">
+    Happy Birthday, Belsha Akka! 🎂❤️<br>
+    Today is your special day!<br>
+    Come with me... I'll guide you through every surprise. ✨
+  </div>
+</div>
 </body>
 
 </html>

@@ -139,7 +139,6 @@ button:hover{
     background:white;
     border-radius:50%;
     animation:twinkle 2s infinite;
-    pointer-events:none;
 }
 
 
@@ -1010,7 +1009,6 @@ color:#ff69b4;
     z-index:99999;
     text-align:center;
     width:320px;
-    pointer-events:none;
     }
 
 #angelEmoji{
@@ -1251,27 +1249,6 @@ you will always be my beloved Akka. ❤️
 <h2 class="endingCredit">Made with ❤️ by your Thammudu</h2>
 
 </section>
-
-<canvas id="fireworks"></canvas>
-
-<audio id="birthdayMusic" loop>
-    <source src="birthday.mp3" type="audio/mpeg">
-</audio>
-
-<audio id="cakeMusic">
-    <source src="birthday-song.mp3" type="audio/mpeg">
-</audio>
-<!-- Birthday Angel -->
-<div id="angelGuide">
-  <div id="angelEmoji">👼</div>
-
-  <div id="angelBubble">
-    Happy Birthday, Belsha Akka! 🎂❤️<br>
-    Today is your special day!<br>
-    Come with me... I'll guide you through every surprise. ✨
-  </div>
-</div>
-
 <script>
 
 setTimeout(()=>{
@@ -1293,7 +1270,13 @@ document.getElementById("intro").style.display="none";
 
 },1000);
 
-document.getElementById("birthdayMusic").play();
+let music = document.getElementById("birthdayMusic");
+music.volume = 1;
+music.play().then(()=>{
+    alert("Music started!");
+}).catch((err)=>{
+    alert("Music failed: " + err);
+});
 
 document.getElementById("intro").style.minHeight="auto";
 
@@ -1368,14 +1351,9 @@ document.getElementById("countdown").innerHTML =
 
 // Hearts
 
-let heartsRunning = false;
-
 function createHearts(){
 
-if(heartsRunning) return;
-heartsRunning = true;
-
-let heartsInterval = setInterval(()=>{
+setInterval(()=>{
 
 let heart=document.createElement("div");
 
@@ -1399,23 +1377,13 @@ heart.remove();
 
 },300);
 
-setTimeout(()=>{
-clearInterval(heartsInterval);
-heartsRunning = false;
-},4000);
-
 }
 
 // Sparkles
 
-let sparklesRunning = false;
-
 function createSparkles(){
 
-if(sparklesRunning) return;
-sparklesRunning = true;
-
-let sparklesInterval = setInterval(()=>{
+setInterval(()=>{
 
 let sparkle=document.createElement("div");
 
@@ -1435,11 +1403,6 @@ sparkle.remove();
 
 
 },200);
-
-setTimeout(()=>{
-clearInterval(sparklesInterval);
-sparklesRunning = false;
-},4000);
 
 }
 function createStars(){
@@ -1471,7 +1434,7 @@ createStars();
 
 function createPetals(){
 
-let petalsInterval = setInterval(()=>{
+setInterval(()=>{
 
 let petal=document.createElement("div");
 
@@ -1496,10 +1459,6 @@ petal.remove();
 
 
 },500);
-
-setTimeout(()=>{
-clearInterval(petalsInterval);
-},8000);
 
 }
 
@@ -1583,11 +1542,7 @@ particles.splice(index,1);
 requestAnimationFrame(animateFireworks);
 
 }
-let fireworksInterval = setInterval(createFirework,1500);
-
-setTimeout(()=>{
-clearInterval(fireworksInterval);
-},8000);
+setInterval(createFirework,1500);
 
 animateFireworks();
 
@@ -1749,7 +1704,7 @@ document.body.className="night";
 });
 function createFloatingNames(){
 
-let namesInterval = setInterval(()=>{
+setInterval(()=>{
 
 let name=document.createElement("div");
 
@@ -1768,10 +1723,6 @@ name.remove();
 },8000);
 
 },2500);
-
-setTimeout(()=>{
-clearInterval(namesInterval);
-},10000);
 
 }
 
@@ -1814,6 +1765,26 @@ window.addEventListener("scroll", () => {
 
 });
 </script>
+
+<canvas id="fireworks"></canvas>
+
+<audio id="birthdayMusic" loop>
+    <source src="birthday.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="cakeMusic">
+    <source src="birthday-song.mp3" type="audio/mpeg">
+</audio>
+<!-- Birthday Angel -->
+<div id="angelGuide">
+  <div id="angelEmoji">👼</div>
+
+  <div id="angelBubble">
+    Happy Birthday, Belsha Akka! 🎂❤️<br>
+    Today is your special day!<br>
+    Come with me... I'll guide you through every surprise. ✨
+  </div>
+</div>
 </body>
 
 </html>

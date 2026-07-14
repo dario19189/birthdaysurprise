@@ -1101,7 +1101,7 @@ Loading...
  </div>      
 </div>
  
-<section class="scene day">
+<section id="day" class="scene day">
 
 <h1>☀️ A Beautiful Day Begins</h1>
 
@@ -1112,7 +1112,7 @@ A special day was created for a special person ❤️
 </section>
 
 
-<section class="scene sunset">
+<section id="sunset" class="scene sunset">
 
 <h1>🌅 Golden Memories</h1>
 
@@ -1124,7 +1124,7 @@ Every moment with you becomes a beautiful memory ✨
 
 
 
-<section class="scene night">
+<section id="night" class="scene night">
 <div class="moon"></div>
 <h1>🌙 A Night Full Of Stars</h1>
 
@@ -1133,7 +1133,7 @@ May your life always shine brighter than the stars ❤️
 </p>
 
 </section>
-<section class="gallerySection">
+<section id="gallery" class="gallerySection">
 
 <h1>❤️ Beautiful Memories ❤️</h1>
 
@@ -1149,7 +1149,7 @@ May your life always shine brighter than the stars ❤️
 </div>
 
 </section>
-<section class="letterSection">
+<section id="letter" class="letterSection">
 
 <div class="letter" onclick="openLetter()" id="letterBox">
 
@@ -1162,7 +1162,7 @@ May your life always shine brighter than the stars ❤️
 </div>
 
 </section>
-<section class="cakeSection">
+<section id="cake" class="cakeSection">
 
 <div class="cakeBox">
 
@@ -1191,7 +1191,7 @@ May all your dreams come true ✨
 </div>
 
 </section>
-<section class="giftSection">
+<section id="gift" class="giftSection">
 
     <h1 class="giftTitle">🎁 One Last Surprise, Belsha ❤️ Akka</h1>
 
@@ -1217,7 +1217,7 @@ May all your dreams come true ✨
 </div>
 
 </section>
-<section class="memorySection">
+<section id="memory" class="memorySection">
 
 <h1 class="memoryTitle">📸 Beautiful Memories With Belsha ❤️ Akka</h1>
 
@@ -1233,7 +1233,7 @@ May all your dreams come true ✨
 </div>
 
 </section>
-<section class="endingSection">
+<section id="ending" class="endingSection">
 
 <h1 class="endingTitle">🎉 Happy Birthday Belsha ❤️ Akka 🎉</h1>
 
@@ -1721,6 +1721,50 @@ name.remove();
 }
 
 createFloatingNames();
+    const angelBubble = document.getElementById("angelBubble");
+
+window.addEventListener("scroll", function () {
+
+    const scroll = window.scrollY;
+
+    if (scroll >= document.getElementById("day").offsetTop - 200) {
+        angelBubble.innerHTML =
+        "☀️ Welcome! Scroll down for your next surprise. ❤️";
+    }
+
+    if (scroll >= document.getElementById("sunset").offsetTop - 200) {
+        angelBubble.innerHTML =
+        "🌅 Every moment with you is a beautiful memory. ✨";
+    }
+
+    if (scroll >= document.getElementById("night").offsetTop - 200) {
+        angelBubble.innerHTML =
+        "🌙 The stars are celebrating with you tonight. ❤️";
+    }
+
+    if (scroll >= document.getElementById("gallery").offsetTop - 200) {
+        angelBubble.innerHTML =
+        "📸 Let's relive these beautiful memories together!";
+    }
+
+    if (scroll >= document.getElementById("letter").offsetTop - 200) {
+        angelBubble.innerHTML =
+        "💌 Touch the letter and read it with a smile.";
+    }
+
+    if (scroll >= document.getElementById("cake").offsetTop - 200) {
+        angelBubble.innerHTML =
+        "🕯️ Blow out the candle and make your birthday wish!";
+    }
+
+    if (document.getElementById("gift") &&
+        scroll >= document.getElementById("gift").offsetTop - 200) {
+
+        angelBubble.innerHTML =
+        "🎁 Now open your special gift!";
+    }
+
+});
 </script>
 
 <canvas id="fireworks"></canvas>

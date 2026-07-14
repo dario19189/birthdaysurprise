@@ -112,8 +112,9 @@ button:hover{
     transform:scale(1.1);
 }
 #mainContent{
-    display:none;
-    margin-top:40px;
+    display:block;
+    text-align:center;
+    padding:40px 20px;
 }
 
 #countdown{
@@ -1024,8 +1025,9 @@ Belsha ❤️ Akka
 <button onclick="startJourney()">
 Touch To Begin ❤️
 </button>
-
-<div id="mainContent">
+    
+</div>
+ <div id="mainContent">
 
 <h2>Her Special Day Begins In ❤️</h2>
 
@@ -1033,9 +1035,7 @@ Touch To Begin ❤️
 Loading...
 </div>
 
-</div>
-
-</div>
+ </div>   
 <section class="scene day">
 
 <h1>☀️ A Beautiful Day Begins</h1>
@@ -1205,7 +1205,7 @@ document.getElementById("intro").style.display="none";
 
 document.getElementById("birthdayMusic").play();
 
-document.getElementById("mainContent").style.display="block";
+document.getElementById("mainContent").style.display="none";
 
 document.getElementById("intro").style.minHeight="auto";
 

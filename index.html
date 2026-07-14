@@ -139,6 +139,7 @@ button:hover{
     background:white;
     border-radius:50%;
     animation:twinkle 2s infinite;
+    pointer-events:none;
 }
 
 
@@ -1367,7 +1368,12 @@ document.getElementById("countdown").innerHTML =
 
 // Hearts
 
+let heartsRunning = false;
+
 function createHearts(){
+
+if(heartsRunning) return;
+heartsRunning = true;
 
 setInterval(()=>{
 
@@ -1397,7 +1403,12 @@ heart.remove();
 
 // Sparkles
 
+let sparklesRunning = false;
+
 function createSparkles(){
+
+if(sparklesRunning) return;
+sparklesRunning = true;
 
 setInterval(()=>{
 

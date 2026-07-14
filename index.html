@@ -987,6 +987,19 @@ color:#ff69b4;
     color:#FFD700;   /* Gold */
     text-shadow:0 0 10px #FFD700;
 }
+    .countNum{
+    color:#FFD700;      /* Gold numbers */
+    font-weight:bold;
+    font-size:48px;
+    text-shadow:0 0 15px #FFD700;
+}
+
+.countText{
+    color:#FF69B4;      /* Pink labels */
+    font-size:30px;
+    font-weight:bold;
+    text-shadow:0 0 10px #FF69B4;
+}
 </style>
 
 </head>
@@ -1242,9 +1255,10 @@ let seconds = Math.floor((difference%(1000*60))/1000);
 
 
 document.getElementById("countdown").innerHTML =
-days+" Days "+hours+" Hours "+minutes+" Minutes "+seconds+" Seconds";
-
-
+"<span class='countNum'>" + days + "</span> <span class='countText'>Days</span> " +
+"<span class='countNum'>" + hours + "</span> <span class='countText'>Hours</span> " +
+"<span class='countNum'>" + minutes + "</span> <span class='countText'>Minutes</span> " +
+"<span class='countNum'>" + seconds + "</span> <span class='countText'>Seconds</span>";
 },1000);
 
 

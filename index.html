@@ -1052,6 +1052,40 @@ font-size:45px;
     font-size:15px;
     line-height:1.5;
 }
+    .photoCard{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    border:2px solid rgba(255,255,255,0.25);
+    border-radius:25px;
+    overflow:hidden;
+    padding:12px;
+
+    height:320px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35),
+        0 0 25px rgba(255,255,255,.25);
+
+    transition:.4s;
+}
+
+.photoCard:hover{
+    transform:translateY(-8px) scale(1.03);
+    box-shadow:
+        0 15px 40px rgba(255,105,180,.45),
+        0 0 35px gold;
+}
+
+.photoCard img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    border-radius:18px;
+}
 </style>
 
 </head>
@@ -1139,12 +1173,29 @@ May your life always shine brighter than the stars ❤️
 
 <div class="gallery">
 
-<img src="pic1.png">
-<img src="pic2.png">
-<img src="pic3.png">
-<img src="pic4.png">
-<img src="pic5.png">
-<img src="pic6.png">
+<div class="photoCard">
+    <img src="pic1.png">
+</div>
+
+<div class="photoCard">
+    <img src="pic2.png">
+</div>
+
+<div class="photoCard">
+    <img src="pic3.png">
+</div>
+
+<div class="photoCard">
+    <img src="pic4.png">
+</div>
+
+<div class="photoCard">
+    <img src="pic5.png">
+</div>
+
+<div class="photoCard">
+    <img src="pic6.png">
+</div>
 
 </div>
 
@@ -1223,12 +1274,29 @@ May all your dreams come true ✨
 
 <div class="memoryGallery">
 
-<img src="pic1.png">
-<img src="pic2.png">
-<img src="pic3.png">
-<img src="pic4.png">
-<img src="pic5.png">
-<img src="pic6.png">
+<div class="photoCard">
+    <img src="pic1.png">
+</div>
+
+<div class="photoCard">
+    <img src="pic2.png">
+</div>
+
+<div class="photoCard">
+    <img src="pic3.png">
+</div>
+
+<div class="photoCard">
+    <img src="pic4.png">
+</div>
+
+<div class="photoCard">
+    <img src="pic5.png">
+</div>
+
+<div class="photoCard">
+    <img src="pic6.png">
+</div>
 
 </div>
 
